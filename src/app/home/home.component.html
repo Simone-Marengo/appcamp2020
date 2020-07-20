@@ -1,0 +1,22 @@
+<ion-content padding>
+
+	<div *ngIf="listArray && listArray.length > 0; else noElements">
+		<div *ngFor="let list of listArray">
+			<ion-card>
+				<img [src]="imageUrl" class="img-meme"/>
+				<ion-card-content>
+					<ion-card-title>
+						{{list.title}}
+					</ion-card-title>
+					<p>
+						{{list.description}}
+					</p>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</div>
+	<ng-template #noElements>
+		<p>Ops, non hai creato nessuna lista!</p>
+	</ng-template>
+
+</ion-content>
