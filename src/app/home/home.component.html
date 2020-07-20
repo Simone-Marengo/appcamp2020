@@ -16,7 +16,16 @@
 		</div>
 	</div>
 	<ng-template #noElements>
-		<p>Ops, non hai creato nessuna lista!</p>
+		<ion-card>
+			<ion-card-header>
+				<ion-card-title>Ops...</ion-card-title>
+				<ion-card-subtitle>non hai nessuna lista!</ion-card-subtitle>
+			</ion-card-header>
+
+			<ion-card-content>
+				Puoi andare nel Tab di Insert per crearne una nuova!
+			</ion-card-content>
+		</ion-card>
 	</ng-template>
 
 </ion-content>
