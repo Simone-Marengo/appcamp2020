@@ -13,8 +13,11 @@ import { InsertPageComponent } from './insert.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    InsertRoutingModule
   ],
-  declarations: [InsertPageComponent]
+  declarations: [InsertPageComponent],
+  exports: [InsertPageComponent],
+  entryComponents: [
+    InsertPageComponent
+  ]
 })
 export class InsertPageModule {}

@@ -14,7 +14,7 @@ export class HomeComponent {
 
   constructor(
     private pageDataService: PageDataService,
-    public modalController: ModalController
+    private modalController: ModalController
   ) {
     this.refreshArray();
   }
@@ -34,6 +34,12 @@ export class HomeComponent {
         index: index
       }
     });
+    // modal.onDidDismiss().then((detail: any) => {
+    //   if (detail !== null) {
+    //     console.log("The result:", detail.data);
+    //   }
+    // });
+
     return await modal.present();
   }
 

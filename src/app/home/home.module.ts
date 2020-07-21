@@ -9,7 +9,12 @@ import { InsertPageComponent } from "../insert/insert.component";
 import { InsertPageModule } from "../insert/insert.module";
 
 @NgModule({
-  imports: [IonicModule, CommonModule, FormsModule, HomeRoutingModule],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    InsertPageModule
+  ],
   declarations: [HomeComponent]
 })
 export class HomePageModule {}
