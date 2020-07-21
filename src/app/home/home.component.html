@@ -3,7 +3,7 @@
 	<ng-container *ngIf="listArray && listArray.length > 0; else noElements">
 		<div *ngFor="let list of listArray; let i = index">
 			<ion-card style="position: relative;">
-				<img [src]=" imageUrl" class="img-meme" />
+				<img [src]="imageUrl" class="img-meme" />
 				<ion-card-content>
 					<ion-card-title>
 						{{list.title}}
