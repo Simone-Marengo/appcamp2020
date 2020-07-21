@@ -1,6 +1,6 @@
 <ion-content padding>
 
-	<div *ngIf="listArray && listArray.length > 0; else noElements">
+	<ng-container *ngIf="listArray && listArray.length > 0; else noElements">
 		<div *ngFor="let list of listArray">
 			<ion-card>
 				<img [src]="imageUrl" class="img-meme"/>
@@ -11,20 +11,33 @@
 					<p>
 						{{list.description}}
 					</p>
+					<div>
+						<ion-button size="small">Small</ion-button>
+					</div>
 				</ion-card-content>
 			</ion-card>
 		</div>
-	</div>
+	</ng-container>
 	<ng-template #noElements>
-		<ion-card>
+		<ion-card style="position: relative;">
+			<img [src]="imageUrlOps" class="img-meme"/>
 			<ion-card-header>
 				<ion-card-title>Ops...</ion-card-title>
 				<ion-card-subtitle>non hai nessuna lista!</ion-card-subtitle>
 			</ion-card-header>
 
 			<ion-card-content>
-				Puoi andare nel Tab di Insert per crearne una nuova!
+				<p>
+					Puoi andare nel Tab di Insert per crearne una nuova!
+				</p>
+				<div style="text-align: right;">
+					<ion-button size="small">Edit</ion-button>
+				</div>
+
 			</ion-card-content>
+			<div class="delete-button-absolute">
+				<ion-button size="small">Delete</ion-button>
+			</div>
 		</ion-card>
 	</ng-template>
 
