@@ -40,7 +40,7 @@ export class InsertComponent {
     debugger
     const listValue: any = this.getListValue();
     this.pageDataService.addElement(listValue);
-    this.presentToast();
+    this.pageDataService.presentToast("Lista Salvata con Successo!");
     this.form.reset();
   }
 
@@ -60,12 +60,5 @@ export class InsertComponent {
     return lista;
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      header: "Lista Salvata con Successo!",
-      position: "bottom",
-      duration: 2000
-    });
-    toast.present();
-  }
+  
 }
