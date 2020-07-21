@@ -13,7 +13,8 @@ import { InsertPageModule } from "../insert/insert.module";
     IonicModule,
     CommonModule,
     FormsModule,
-    InsertPageModule
+    InsertPageModule,
+    HomeRoutingModule
   ],
   declarations: [HomeComponent]
 })

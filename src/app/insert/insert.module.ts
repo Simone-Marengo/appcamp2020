@@ -1,11 +1,11 @@
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { RouterModule } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { IonicModule } from "@ionic/angular";
 
-import { InsertRoutingModule } from './insert-routing.module';
-import { InsertPageComponent } from './insert.component';
+import { InsertRoutingModule } from "./insert-routing.module";
+import { InsertPageComponent } from "./insert.component";
 
 @NgModule({
   imports: [
@@ -13,11 +13,10 @@ import { InsertPageComponent } from './insert.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    InsertRoutingModule
   ],
   declarations: [InsertPageComponent],
   exports: [InsertPageComponent],
-  entryComponents: [
-    InsertPageComponent
-  ]
+  entryComponents: [InsertPageComponent]
 })
 export class InsertPageModule {}
