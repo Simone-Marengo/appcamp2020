@@ -4,7 +4,6 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
 import { HomeComponent } from "./home.component";
-import { HomeRoutingModule } from "./home-routing.module";
 import { InsertPageComponent } from "../insert/insert.component";
 import { InsertPageModule } from "../insert/insert.module";
 
@@ -14,7 +13,7 @@ import { InsertPageModule } from "../insert/insert.module";
     CommonModule,
     FormsModule,
     InsertPageModule,
-    HomeRoutingModule
+    RouterModule.forChild([{ path: "", component: HomeComponent }])
   ],
   declarations: [HomeComponent]
 })
