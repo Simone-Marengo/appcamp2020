@@ -13,7 +13,7 @@ import { ToastController } from "@ionic/angular";
   templateUrl: "insert.component.html",
   styleUrls: ["insert.component.css"]
 })
-export class InsertComponent {
+export class InsertPageComponent {
   // contenitore di input ( serve a prelevare e controllare valori)
   form: FormGroup;
   constructor(
@@ -37,7 +37,6 @@ export class InsertComponent {
   }
 
   saveLista() {
-    debugger
     const listValue: any = this.getListValue();
     this.pageDataService.addElement(listValue);
     this.pageDataService.presentToast("Lista Salvata con Successo!");

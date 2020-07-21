@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { PageDataService } from "../../services/tabs-data.service";
+import { Router } from "@angular/router";
+import { ModalController } from "@ionic/angular";
+import { InsertPageComponent } from "../insert/insert.component";
 
 @Component({
   selector: "app-home",
@@ -9,12 +12,29 @@ import { PageDataService } from "../../services/tabs-data.service";
 export class HomeComponent {
   listArray: Array<any> = [];
 
-  constructor(private pageDataService: PageDataService) {
+  constructor(
+    private pageDataService: PageDataService,
+    public modalController: ModalController
+  ) {
     this.refreshArray();
   }
 
   refreshArray() {
     this.listArray = this.pageDataService.listArray;
+  }
+
+  async editList(index: number) {
+    this.presentModal(index);
+  }
+
+  async presentModal(index: number) {
+    const modal = await this.modalController.create({
+      component: InsertPageComponent,
+      componentProps: {
+        index: index
+      }
+    });
+    return await modal.present();
   }
 
   /*
@@ -24,7 +44,6 @@ export class HomeComponent {
         al metodo di eliminazione nel service
       - infine aggiornare l'array con quello modificato nel service
   */
-
   deleteList(index: number) {
     this.pageDataService.deleteElement(index);
     this.pageDataService.presentToast("Lista Eliminata con Successo!");

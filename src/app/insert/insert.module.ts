@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { InsertRoutingModule } from './insert-routing.module';
-import { InsertComponent } from './insert.component';
+import { InsertPageComponent } from './insert.component';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { InsertComponent } from './insert.component';
     ReactiveFormsModule,
     InsertRoutingModule
   ],
-  declarations: [InsertComponent]
+  declarations: [InsertPageComponent]
 })
 export class InsertPageModule {}
