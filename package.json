@@ -15,7 +15,7 @@
     "@angular/router": "~8.2.0",
     "@ionic/angular": "~4.7.0",
     "core-js": "^2.6.9",
-    "ionicons": "5.1.2",
+    "ionicons": "4.4.8",
     "rxjs": "~6.5.0",
     "typescript": "~3.5.0",
     "zone.js": "~0.9.0"
