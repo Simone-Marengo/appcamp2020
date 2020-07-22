@@ -31,9 +31,9 @@ export class HomeComponent {
     this.pageDataService.indexElementToUpdate = index;
     const modal = await this.modalController.create({
       component: InsertPageComponent
-      //   componentProps: {
-      //     listIndexNumber: index
-      //   }
+        // componentProps: {
+        //   listIndexNumber: index
+        // }
     });
 
     modal.onDidDismiss().then((detail: any) => {

@@ -6,7 +6,8 @@ import {
   FormBuilder
 } from "@angular/forms";
 import { PageDataService } from "../../services/tabs-data.service";
-import { ToastController } from "@ionic/angular";
+import { ToastController, ModalController } from "@ionic/angular";
+import { aliasTransformFactory } from "@angular/compiler-cli/src/ngtsc/transform/src/alias";
 
 @Component({
   selector: "app-insert",
@@ -15,13 +16,14 @@ import { ToastController } from "@ionic/angular";
 })
 export class InsertPageComponent implements OnInit {
   listIndexNumber: number;
-
+  action: string = "Save";
   // contenitore di input ( serve a prelevare e controllare valori)
   form: FormGroup;
   constructor(
     private pageDataService: PageDataService,
     private formBuilder: FormBuilder,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private modalController: ModalController
   ) {
     this.form = this.createForm(formBuilder);
   }
@@ -31,11 +33,12 @@ export class InsertPageComponent implements OnInit {
     if (index !== null && index !== undefined) {
       const element = this.pageDataService.getElementByIndexElementToUpdate();
       if (element) {
+        this.action = "Edit";
         this.valorizeForm(element);
       }
     }
-    // console.log("listIndexNumber =>>>>", this.listIndexNumber);
 
+    // console.log("listIndexNumber =>>>>", this.listIndexNumber);
     // let element;
     // if (this.listIndexNumber) {
     //   element = this.pageDataService.listArray[this.listIndexNumber];
@@ -46,6 +49,11 @@ export class InsertPageComponent implements OnInit {
   private valorizeForm(element) {
     const { title, description, label, startDate, endDate } = element;
     this.form.patchValue({ title, description, label, startDate, endDate });
+    // this.form.get("title").setValue(title);
+    // this.form.get("description").setValue(description);
+    // this.form.get("label").setValue(label);
+    // this.form.get("startDate").setValue(startDate);
+    // this.form.get("endDate").setValue(endDate);
   }
 
   saveLista() {
@@ -53,6 +61,14 @@ export class InsertPageComponent implements OnInit {
     this.pageDataService.addElement(listValue);
     this.pageDataService.presentToast("Lista Salvata con Successo!");
     this.form.reset();
+  }
+
+  editLista() {
+    const listValue: any = this.getListValue();
+    this.pageDataService.editElement(listValue);
+    this.pageDataService.presentToast("Lista Modificata con Successo!");
+    this.form.reset();
+    this.dismiss();
   }
 
   getListValue(): any {
@@ -84,6 +100,12 @@ export class InsertPageComponent implements OnInit {
       label: ["", Validators.required],
       startDate: ["", Validators.required],
       endDate: ["", Validators.required]
+    });
+  }
+
+  dismiss() {
+    this.modalController.dismiss({
+      dismissed: true
     });
   }
 }

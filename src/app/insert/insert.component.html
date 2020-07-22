@@ -1,3 +1,14 @@
+<ion-header [hidden]="action === 'Save'">
+	<ion-toolbar>
+		<ion-buttons slot="end" (click)="dismiss()">
+			<ion-button>
+				<ion-icon name="clear"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>{{ action }} Lista</ion-title>
+	</ion-toolbar>
+</ion-header>
+
 <ion-content padding>
 
 	<ion-list lines="full" class="ion-no-margin ion-no-padding">
@@ -67,6 +78,7 @@
 		</form>
 	</ion-list>
 
-	<ion-button expand="block" (click)="saveLista()" [disabled]="form.invalid">Save Lista</ion-button>
+	<ion-button expand="block" (click)="action === 'Save' ? saveLista() : editLista();" [disabled]="form.invalid">
+		{{ action }} Lista</ion-button>
 
 </ion-content>

@@ -4,10 +4,10 @@ PROGETTO
 
 	1. creazione di un progetto con possibilità di
 		( operazioni di CRUD Create Read Update Delete )
-		- creare una o più attività
-		- modificare una attività
-		- cancellare una attività 
-		- ricerca attività
+		- creare una o più attività OK
+		- modificare una attività OK
+		- cancellare una attività OK
+		- ricerca attività (?)
 	
 	( Lista:
 		Titolo,
