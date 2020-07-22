@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import {
   FormGroup,
   FormControl,
@@ -14,6 +14,8 @@ import { ToastController } from "@ionic/angular";
   styleUrls: ["insert.component.css"]
 })
 export class InsertPageComponent {
+  @Input("index") index: number;
+
   // contenitore di input ( serve a prelevare e controllare valori)
   form: FormGroup;
   constructor(
@@ -21,19 +23,8 @@ export class InsertPageComponent {
     private formBuilder: FormBuilder,
     public toastController: ToastController
   ) {
-    this.form = formBuilder.group({
-      title: [
-        "",
-        [Validators.minLength(3), Validators.maxLength(25), Validators.required]
-      ],
-      description: [
-        "",
-        [Validators.minLength(3), Validators.maxLength(50), Validators.required]
-      ],
-      label: ["", Validators.required],
-      startDate: ["", Validators.required],
-      endDate: ["", Validators.required]
-    });
+    this.form = this.createForm(formBuilder);
+    console.log("DATA MODAL: index =>>>>> ", this.index);
   }
 
   saveLista() {
@@ -59,5 +50,19 @@ export class InsertPageComponent {
     return lista;
   }
 
-  
+  createForm(formBuilder) {
+    return formBuilder.group({
+      title: [
+        "",
+        [Validators.minLength(3), Validators.maxLength(25), Validators.required]
+      ],
+      description: [
+        "",
+        [Validators.minLength(3), Validators.maxLength(50), Validators.required]
+      ],
+      label: ["", Validators.required],
+      startDate: ["", Validators.required],
+      endDate: ["", Validators.required]
+    });
+  }
 }

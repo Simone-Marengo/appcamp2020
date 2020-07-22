@@ -5,8 +5,8 @@ import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
 import { HomeComponent } from "./home.component";
 import { InsertPageComponent } from "../insert/insert.component";
-import { InsertPageModule } from "../insert/insert.module";
 import { HomeRoutingModule } from "./home-routing.module";
+import { InsertPageModule } from "../insert/insert.module";
 
 @NgModule({
   imports: [

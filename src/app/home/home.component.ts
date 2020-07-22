@@ -28,17 +28,22 @@ export class HomeComponent {
   }
 
   async presentModal(index: number) {
-    const modal = await this.modalController.create({
-      component: InsertPageComponent,
+    const data = {
       componentProps: {
         index: index
       }
+    };
+    const modal = await this.modalController.create({
+      component: InsertPageComponent,
+      data
     });
-    // modal.onDidDismiss().then((detail: any) => {
-    //   if (detail !== null) {
-    //     console.log("The result:", detail.data);
-    //   }
-    // });
+
+    console.log(modal);
+    modal.onDidDismiss().then((detail: any) => {
+      if (detail !== null) {
+        console.log("The result:", detail.data);
+      }
+    });
 
     return await modal.present();
   }
