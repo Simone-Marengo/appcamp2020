@@ -28,21 +28,16 @@ export class HomeComponent {
   }
 
   async presentModal(index: number) {
-    const data = {
-      componentProps: {
-        index: index
-      }
-    };
+    this.pageDataService.indexElementToUpdate = index;
     const modal = await this.modalController.create({
-      component: InsertPageComponent,
-      data
+      component: InsertPageComponent
+      //   componentProps: {
+      //     listIndexNumber: index
+      //   }
     });
 
-    console.log(modal);
     modal.onDidDismiss().then((detail: any) => {
-      if (detail !== null) {
-        console.log("The result:", detail.data);
-      }
+      this.pageDataService.resetIndexElementToUpdate();
     });
 
     return await modal.present();

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import {
   FormGroup,
   FormControl,
@@ -13,8 +13,8 @@ import { ToastController } from "@ionic/angular";
   templateUrl: "insert.component.html",
   styleUrls: ["insert.component.css"]
 })
-export class InsertPageComponent {
-  @Input("index") index: number;
+export class InsertPageComponent implements OnInit {
+  listIndexNumber: number;
 
   // contenitore di input ( serve a prelevare e controllare valori)
   form: FormGroup;
@@ -24,7 +24,28 @@ export class InsertPageComponent {
     public toastController: ToastController
   ) {
     this.form = this.createForm(formBuilder);
-    console.log("DATA MODAL: index =>>>>> ", this.index);
+  }
+
+  ngOnInit() {
+    const index = this.pageDataService.indexElementToUpdate;
+    if (index !== null && index !== undefined) {
+      const element = this.pageDataService.getElementByIndexElementToUpdate();
+      if (element) {
+        this.valorizeForm(element);
+      }
+    }
+    // console.log("listIndexNumber =>>>>", this.listIndexNumber);
+
+    // let element;
+    // if (this.listIndexNumber) {
+    //   element = this.pageDataService.listArray[this.listIndexNumber];
+    //   // console.log("element =>>>>", element);
+    // }
+  }
+
+  private valorizeForm(element) {
+    const { title, description, label, startDate, endDate } = element;
+    this.form.patchValue({ title, description, label, startDate, endDate });
   }
 
   saveLista() {
@@ -43,7 +64,7 @@ export class InsertPageComponent {
     const lista: any = {
       title: titleValue,
       description: descriptionValue,
-      labels: labelValue,
+      label: labelValue,
       startDate: startDateValue,
       endDate: endDateValue
     };
