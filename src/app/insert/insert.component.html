@@ -59,7 +59,7 @@
 
 			<ion-item>
 				<ion-label position="floating">Start Date</ion-label>
-				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="startDate">
+				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [min]="minStartDate" formControlName="startDate">
 				</ion-datetime>
 			</ion-item>
 			<div [hidden]="!form.get('startDate').touched && !form.get('startDate').dirty" class="form-error">

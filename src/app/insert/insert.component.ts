@@ -15,6 +15,7 @@ import { aliasTransformFactory } from "@angular/compiler-cli/src/ngtsc/transform
   styleUrls: ["insert.component.css"]
 })
 export class InsertPageComponent implements OnInit {
+  minStartDate: string;
   listIndexNumber: number;
   action: string = "Save";
   // contenitore di input ( serve a prelevare e controllare valori)
@@ -30,6 +31,9 @@ export class InsertPageComponent implements OnInit {
 
   ngOnInit() {
     const index = this.pageDataService.indexElementToUpdate;
+
+    this.setMinStartDates();
+
     if (index !== null && index !== undefined) {
       const element = this.pageDataService.getElementByIndexElementToUpdate();
       if (element) {
@@ -37,18 +41,23 @@ export class InsertPageComponent implements OnInit {
         this.valorizeForm(element);
       }
     }
+  }
 
-    // console.log("listIndexNumber =>>>>", this.listIndexNumber);
-    // let element;
-    // if (this.listIndexNumber) {
-    //   element = this.pageDataService.listArray[this.listIndexNumber];
-    //   // console.log("element =>>>>", element);
-    // }
+  setMinStartDates() {
+    const today: string = new Date().toISOString();
+    this.minStartDate = today;
   }
 
   private valorizeForm(element) {
     const { title, description, label, startDate, endDate, imageUrl } = element;
-    this.form.patchValue({ title, description, label, startDate, endDate, imageUrl });
+    this.form.patchValue({
+      title,
+      description,
+      label,
+      startDate,
+      endDate,
+      imageUrl
+    });
     // this.form.get("title").setValue(title);
     // this.form.get("description").setValue(description);
     // this.form.get("label").setValue(label);
