@@ -99,7 +99,8 @@ export class InsertPageComponent implements OnInit {
       ],
       label: ["", Validators.required],
       startDate: ["", Validators.required],
-      endDate: ["", Validators.required]
+      endDate: ["", Validators.required],
+      imageUrl: ["", Validators.required]
     });
   }
 

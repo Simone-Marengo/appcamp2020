@@ -75,6 +75,16 @@
 				<div [hidden]="!form.get('endDate').errors?.required">This field is required.
 				</div>
 			</div>
+
+			<ion-item>
+				<ion-label position="floating">Insert Image Url</ion-label>
+				<ion-input type="text" required formControlName="imageUrl"></ion-input>
+			</ion-item>
+			<div [hidden]="!form.get('imageUrl').touched && !form.get('imageUrl').dirty" class="form-error">
+				<div [hidden]="!form.get('imageUrl').errors?.required">This field is required.
+				</div>
+			</div>
+
 		</form>
 	</ion-list>
 
