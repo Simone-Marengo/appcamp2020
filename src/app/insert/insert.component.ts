@@ -29,6 +29,18 @@ export class InsertPageComponent implements OnInit {
     this.form = this.createForm(formBuilder);
   }
 
+  // 1. string interpolation
+
+  //     {{ string }}
+
+  // 2. property binding
+
+  //   <tag  [ property ] = " value ">
+
+  // 3. event binding
+
+  //     ( event ) = " method() "
+
   ngOnInit() {
     const index = this.pageDataService.indexElementToUpdate;
 
@@ -81,6 +93,10 @@ export class InsertPageComponent implements OnInit {
   }
 
   getListValue(): any {
+    // ! NOT
+    // && AND true AND true = true tutto il resto false
+    // || OR false || false = false tutto il resto, se almeno una è true = true
+
     const titleValue = this.form.get("title").value;
     const descriptionValue = this.form.get("description").value;
     const labelValue = this.form.get("label").value;
