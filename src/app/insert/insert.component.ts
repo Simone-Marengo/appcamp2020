@@ -47,8 +47,8 @@ export class InsertPageComponent implements OnInit {
   }
 
   private valorizeForm(element) {
-    const { title, description, label, startDate, endDate } = element;
-    this.form.patchValue({ title, description, label, startDate, endDate });
+    const { title, description, label, startDate, endDate, imageUrl } = element;
+    this.form.patchValue({ title, description, label, startDate, endDate, imageUrl });
     // this.form.get("title").setValue(title);
     // this.form.get("description").setValue(description);
     // this.form.get("label").setValue(label);
@@ -77,12 +77,14 @@ export class InsertPageComponent implements OnInit {
     const labelValue = this.form.get("label").value;
     const startDateValue = this.form.get("startDate").value;
     const endDateValue = this.form.get("endDate").value;
+    const imageUrlValue = this.form.get("imageUrl").value;
     const lista: any = {
       title: titleValue,
       description: descriptionValue,
       label: labelValue,
       startDate: startDateValue,
-      endDate: endDateValue
+      endDate: endDateValue,
+      imageUrl: imageUrlValue
     };
     return lista;
   }
