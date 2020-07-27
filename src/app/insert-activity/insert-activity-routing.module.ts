@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { Tab3Component } from './tab3.component';
+import { InsertActivityComponent } from './insert-activity.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: Tab3Component
+    component: InsertActivityComponent
   }
 ];
 
@@ -16,4 +16,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class Tab3RoutingModule {}
+export class InsertActivityRoutingModule {}

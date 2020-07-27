@@ -7,24 +7,25 @@ PROGETTO
 		- creare una o più attività OK
 		- modificare una attività OK
 		- cancellare una attività OK
-		- ricerca attività (?)
-	
-	( Lista:
-		Titolo,
-		Descrizione,
-		Etichetta,
-		Array di Attività,
-		Data di scadenza,
-		Data di inizio
+
+	( 
+    Lista:
+      Titolo,
+      Descrizione,
+      Etichetta,
+      Array di Attività,
+      Data di scadenza,
+      Data di inizio
 	)
-	( Attività:
-		Descrizione,
-		Completata
+	( 
+    Attività:
+      Descrizione,
+      Completata
 	)
 	
 	2. aggiunta di foto ad ogni atttività in creazione
-		- aggiunta foto ad una attività di una lista
-		- modifica foto ( delete => create )
+		- aggiunta foto ad una attività di una lista OK
+		- modifica foto ( delete => create ) OK
 	
 	3. aggiunta valore attività indirizzo con google maps
 		- integrazione google maps
