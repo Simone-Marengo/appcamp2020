@@ -4,7 +4,7 @@
 		<div *ngFor="let list of listArray; let i = index">
 			<ion-card style="position: relative;">
 				<img [src]="list.imageUrl" class="img-meme" />
-				<ion-card-content>
+				<ion-card-content> 
 					<ion-card-title>
 						{{list.title}}
 					</ion-card-title>
@@ -31,7 +31,7 @@
 
 	<ng-template #noElements>
 		<ion-card>
-			<img [src]="imageUrlOops" class="img-meme"/>
+			<!-- <img [src]="imageUrlOops" class="img-meme"/> -->
 			<ion-card-header>
 				<ion-card-title>Ops...</ion-card-title>
 				<ion-card-subtitle>non hai nessuna lista!</ion-card-subtitle>

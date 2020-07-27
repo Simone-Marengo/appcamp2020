@@ -1,1 +1,45 @@
-<ion-content class="ion-padding">Tab Three</ion-content>
+<ion-content padding>
+
+	<ng-container *ngIf="listArray && listArray.length > 0; else noElements">
+		<div *ngFor="let list of listArray; let i = index">
+			<ion-card style="position: relative;">
+				<ion-card-content>
+					<ion-card-title>
+						{{list.title}}
+					</ion-card-title>
+
+					<mat-accordion>
+						<mat-expansion-panel hideToggle>
+							<mat-expansion-panel-header>
+								<mat-panel-title>
+									Add new activity to the list
+								</mat-panel-title>
+								<mat-panel-description>
+									This is a summary of the content
+								</mat-panel-description>
+							</mat-expansion-panel-header>
+							<p>This is the primary content of the panel.</p>
+						</mat-expansion-panel>
+					</mat-accordion>
+
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</ng-container>
+
+	<ng-template #noElements>
+		<ion-card>
+			<!-- <img [src]="imageUrlOops" class="img-meme"/> -->
+			<ion-card-header>
+				<ion-card-title>Ops...</ion-card-title>
+				<ion-card-subtitle>non hai nessuna lista!</ion-card-subtitle>
+			</ion-card-header>
+			<ion-card-content>
+				<p>
+					Puoi andare nel Tab di Insert per crearne una nuova!
+				</p>
+			</ion-card-content>
+		</ion-card>
+	</ng-template>
+
+</ion-content>
