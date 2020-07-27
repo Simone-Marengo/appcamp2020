@@ -8,12 +8,7 @@ import { InsertActivityComponent } from "./insert-activity.component";
 import { MatExpansionModule } from "@angular/material/expansion";
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    InsertActivityRoutingModule,
-    MatExpansionModule
-  ],
+  imports: [IonicModule, CommonModule, InsertActivityRoutingModule],
   declarations: [InsertActivityComponent]
 })
 export class InsertActivityPageModule {}

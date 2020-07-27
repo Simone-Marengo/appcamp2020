@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, OnDestroy } from "@angular/core";
 import {
   FormGroup,
   FormControl,
@@ -14,10 +14,12 @@ import { aliasTransformFactory } from "@angular/compiler-cli/src/ngtsc/transform
   templateUrl: "insert.component.html",
   styleUrls: ["insert.component.css"]
 })
-export class InsertPageComponent implements OnInit {
+export class InsertPageComponent implements OnInit, OnDestroy {
   minStartDate: string;
   listIndexNumber: number;
   action: string = "Save";
+  element: any;
+
   // contenitore di input ( serve a prelevare e controllare valori)
   form: FormGroup;
   constructor(
@@ -47,10 +49,10 @@ export class InsertPageComponent implements OnInit {
     this.setMinStartDates();
 
     if (index !== null && index !== undefined) {
-      const element = this.pageDataService.getElementByIndexElementToUpdate();
-      if (element) {
+      this.element = this.pageDataService.getElementByIndexElementToUpdate();
+      if (this.element) {
         this.action = "Edit";
-        this.valorizeForm(element);
+        this.valorizeForm(this.element);
       }
     }
   }
@@ -109,7 +111,8 @@ export class InsertPageComponent implements OnInit {
       label: labelValue,
       startDate: startDateValue,
       endDate: endDateValue,
-      imageUrl: imageUrlValue
+      imageUrl: imageUrlValue,
+      listActivity: this.action === "Edit" ? this.element.listActivity : []
     };
     return lista;
   }
@@ -135,5 +138,9 @@ export class InsertPageComponent implements OnInit {
     this.modalController.dismiss({
       dismissed: true
     });
+  }
+
+  ngOnDestroy() {
+    this.element = null;
   }
 }

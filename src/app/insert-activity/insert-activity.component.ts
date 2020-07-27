@@ -13,5 +13,16 @@ export class InsertActivityComponent implements OnInit {
   ngOnInit() {
     this.listArray = this.pageDataService.listArray;
   }
-  
+
+  saveActivity(activityInput, i) {
+    this.listArray[i].listActivity.push(activityInput.value);
+    activityInput.value = "";
+  }
+
+  deleteActivity(indexActivity, indexList) {
+    this.listArray[indexList].listActivity.splice(indexActivity, 1);
+  }
+  disableInput(value: string): boolean {
+    return value === "" ? true : false;
+  }
 }

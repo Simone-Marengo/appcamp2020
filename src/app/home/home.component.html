@@ -4,7 +4,7 @@
 		<div *ngFor="let list of listArray; let i = index">
 			<ion-card style="position: relative;">
 				<img [src]="list.imageUrl" class="img-meme" />
-				<ion-card-content> 
+				<ion-card-content>
 					<ion-card-title>
 						{{list.title}}
 					</ion-card-title>
@@ -13,6 +13,10 @@
 					</p>
 					<p>
 						{{list.startDate}} - {{list.endDate}}
+					</p>
+					<p>
+						Activities {{list.listActivity.length}}
+						<a style="cursor: pointer" [hidden]="list.listActivity.length === 0">view all</a>
 					</p>
 					<div style="text-align: right;">
 						<ion-button (click)="editList(i)">
