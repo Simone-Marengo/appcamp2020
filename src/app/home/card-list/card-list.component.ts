@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { ActionSheetController, ModalController } from "@ionic/angular";
 import { InsertPageComponent } from "../../insert/insert.component";
 import { PageDataService } from "../../../services/tabs-data.service";
+import { InsertActivityComponent } from "../../insert-activity/insert-activity.component";
 
 @Component({
   selector: "app-card-list",
@@ -75,11 +76,11 @@ export class CardListComponent implements OnInit {
   }
 
   async edit() {
-    this.presentModal(this.index);
+    this.openInsert();
   }
 
-  async presentModal(index: number) {
-    this.pageDataService.indexElementToUpdate = index;
+  private async openInsert() {
+    this.pageDataService.indexElementToUpdate = this.index;
     const modal = await this.modalController.create({
       component: InsertPageComponent
       // componentProps: {
@@ -94,5 +95,23 @@ export class CardListComponent implements OnInit {
     return await modal.present();
   }
 
-  addActivities() {}
+  addActivities() {
+    this.openInsertActivities();
+  }
+
+  private async openInsertActivities() {
+    this.pageDataService.indexElementToUpdate = this.index;
+    const modal = await this.modalController.create({
+      component: InsertActivityComponent
+      // componentProps: {
+      //   listIndexNumber: index
+      // }
+    });
+
+    modal.onDidDismiss().then((detail: any) => {
+      this.pageDataService.resetIndexElementToUpdate();
+    });
+
+    return await modal.present();
+  }
 }

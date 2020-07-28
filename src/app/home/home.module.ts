@@ -8,6 +8,7 @@ import { InsertPageComponent } from "../insert/insert.component";
 import { HomeRoutingModule } from "./home-routing.module";
 import { InsertPageModule } from "../insert/insert.module";
 import { CardListComponent } from "./card-list/card-list.component";
+import { InsertActivityPageModule } from "../insert-activity/insert-activity.module";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { CardListComponent } from "./card-list/card-list.component";
     CommonModule,
     FormsModule,
     HomeRoutingModule,
-    InsertPageModule
+    InsertPageModule,
+    InsertActivityPageModule
   ],
   declarations: [HomeComponent, CardListComponent]
 })
