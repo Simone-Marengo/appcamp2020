@@ -7,6 +7,7 @@ import { HomeComponent } from "./home.component";
 import { InsertPageComponent } from "../insert/insert.component";
 import { HomeRoutingModule } from "./home-routing.module";
 import { InsertPageModule } from "../insert/insert.module";
+import { CardListComponent } from "./card-list/card-list.component";
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { InsertPageModule } from "../insert/insert.module";
     HomeRoutingModule,
     InsertPageModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, CardListComponent]
 })
 export class HomePageModule {}

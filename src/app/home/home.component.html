@@ -2,34 +2,9 @@
 
 	<ng-container *ngIf="listArray && listArray.length > 0; else noElements">
 		<div *ngFor="let list of listArray; let i = index">
-			<ion-card style="position: relative;">
-				<img [src]="list.imageUrl" class="img-meme" />
-				<ion-card-content>
-					<ion-card-title>
-						{{list.title}}
-					</ion-card-title>
-					<p>
-						{{list.description}}
-					</p>
-					<p>
-						{{list.startDate}} - {{list.endDate}}
-					</p>
-					<p>
-						Activities {{list.listActivity.length}}
-						<a style="cursor: pointer" [hidden]="list.listActivity.length === 0">view all</a>
-					</p>
-					<div style="text-align: right;">
-						<ion-button (click)="editList(i)">
-							<ion-icon name="pencil"></ion-icon>
-						</ion-button>
-					</div>
-				</ion-card-content>
-				<div class="delete-button-absolute">
-					<ion-button (click)="deleteList(i)">
-						<ion-icon name="trash"></ion-icon>
-					</ion-button>
-				</div>
-			</ion-card>
+
+			<app-card-list [list]="list" [index]="i" (emitRefreshArray)="refreshArray($event)"></app-card-list>
+
 		</div>
 	</ng-container>
 
