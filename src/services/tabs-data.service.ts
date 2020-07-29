@@ -27,20 +27,21 @@ export class PageDataService {
   }
 
   public editElement(element: any) {
-    // // sostituire l'elemento
-    // this.listArray[this.indexElementToUpdate] = element;
-    // // eliminare e sostituire
+    // sostituire l'elemento
+    this.listArray[this.indexElementToUpdate] = element;
+
+    // eliminare e sostituire
     // this.listArray.splice(this.indexElementToUpdate, 1, element);
 
     // riassegniamo i valori
-    const { title, description, label, startDate, endDate } = element;
-    const arrayElement = this.listArray[this.indexElementToUpdate];
+    // const { title, description, label, startDate, endDate } = element;
+    // const arrayElement = this.listArray[this.indexElementToUpdate];
 
-    arrayElement.title = title;
-    arrayElement.description = description;
-    arrayElement.label = label;
-    arrayElement.startDate = startDate;
-    arrayElement.endDate = endDate;
+    // arrayElement.title = title;
+    // arrayElement.description = description;
+    // arrayElement.label = label;
+    // arrayElement.startDate = startDate;
+    // arrayElement.endDate = endDate;
   }
 
   public async presentToast(title: string) {

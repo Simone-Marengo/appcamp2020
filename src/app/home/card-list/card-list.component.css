@@ -1,3 +1,13 @@
 .cursor-pointer{
   cursor: pointer;
 }
+
+.label-card-personal{
+  border-left: 2px solid red;
+}
+.label-card-work{
+  border-left: 2px solid blue;  
+}
+.label-card-school{
+  border-left: 2px solid green;
+}

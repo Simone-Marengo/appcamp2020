@@ -45,9 +45,7 @@ export class InsertPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const index = this.pageDataService.indexElementToUpdate;
-
     this.setMinStartDates();
-
     if (index !== null && index !== undefined) {
       this.element = this.pageDataService.getElementByIndexElementToUpdate();
       if (this.element) {
@@ -95,16 +93,13 @@ export class InsertPageComponent implements OnInit, OnDestroy {
   }
 
   getListValue(): any {
-    // ! NOT
-    // && AND true AND true = true tutto il resto false
-    // || OR false || false = false tutto il resto, se almeno una è true = true
-
     const titleValue = this.form.get("title").value;
     const descriptionValue = this.form.get("description").value;
     const labelValue = this.form.get("label").value;
     const startDateValue = this.form.get("startDate").value;
     const endDateValue = this.form.get("endDate").value;
     const imageUrlValue = this.form.get("imageUrl").value;
+    const className = this.getListClassByLabel(labelValue);
     const lista: any = {
       title: titleValue,
       description: descriptionValue,
@@ -112,7 +107,8 @@ export class InsertPageComponent implements OnInit, OnDestroy {
       startDate: startDateValue,
       endDate: endDateValue,
       imageUrl: imageUrlValue,
-      listActivity: this.action === "Edit" ? this.element.listActivity : []
+      listActivity: this.action === "Edit" ? this.element.listActivity : [],
+      className
     };
     return lista;
   }
@@ -140,11 +136,21 @@ export class InsertPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  getHeaderTitle = () => `${this.action} List`; // this.action + "List"
-
   // getHeaderTitle() {
   //   return `${this.action} List`;
   // }
+
+  getHeaderTitle = () => `${this.action} List`; // this.action + "List"
+
+  getListClassByLabel(labelValue: string): string {
+    let className: string;
+    className = "label-card-" + labelValue;
+    return className;
+  }
+
+  // getListClassByLabel = (
+  //   labelValue: string = "personal" || "work" || "school"
+  // ) => `label-card-${labelValue}`;
 
   ngOnDestroy() {
     this.element = null;
