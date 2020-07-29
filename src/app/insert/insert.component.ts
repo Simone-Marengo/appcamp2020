@@ -48,10 +48,11 @@ export class InsertPageComponent implements OnInit, OnDestroy {
     this.minStartDate = today;
   }
 
-  onChangeStartDate(event) {
+  onChangeStartDate() {
     this.resetEndDateValue();
     const startDate = this.form.get("startDate");
     const endDate = this.form.get("endDate");
+    
     if (
       (startDate.dirty && startDate.touched) ||
       (startDate.value && startDate.value !== null)
