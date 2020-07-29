@@ -31,18 +31,6 @@ export class InsertPageComponent implements OnInit, OnDestroy {
     this.form = this.createForm(formBuilder);
   }
 
-  // 1. string interpolation
-
-  //     {{ string }}
-
-  // 2. property binding
-
-  //   <tag  [ property ] = " value ">
-
-  // 3. event binding
-
-  //     ( event ) = " method() "
-
   ngOnInit() {
     const index = this.pageDataService.indexElementToUpdate;
     this.setMinStartDates();
@@ -60,6 +48,24 @@ export class InsertPageComponent implements OnInit, OnDestroy {
     this.minStartDate = today;
   }
 
+  onChangeStartDate(event) {
+    this.resetEndDateValue();
+    const startDate = this.form.get("startDate");
+    const endDate = this.form.get("endDate");
+    if (
+      (startDate.dirty && startDate.touched) ||
+      (startDate.value && startDate.value !== null)
+    ) {
+      endDate.enable();
+    } else {
+      if (!endDate.disabled) endDate.disable();
+    }
+  }
+
+  resetEndDateValue() {
+    this.form.get("endDate").reset();
+  }
+
   private valorizeForm(element) {
     const { title, description, label, startDate, endDate, imageUrl } = element;
     this.form.patchValue({
@@ -70,11 +76,6 @@ export class InsertPageComponent implements OnInit, OnDestroy {
       endDate,
       imageUrl
     });
-    // this.form.get("title").setValue(title);
-    // this.form.get("description").setValue(description);
-    // this.form.get("label").setValue(label);
-    // this.form.get("startDate").setValue(startDate);
-    // this.form.get("endDate").setValue(endDate);
   }
 
   saveLista() {
@@ -125,7 +126,7 @@ export class InsertPageComponent implements OnInit, OnDestroy {
       ],
       label: ["", Validators.required],
       startDate: ["", Validators.required],
-      endDate: ["", Validators.required],
+      endDate: [{ value: "", disabled: true }, Validators.required],
       imageUrl: ["", Validators.required]
     });
   }

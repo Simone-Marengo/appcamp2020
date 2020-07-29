@@ -51,6 +51,7 @@
 			<ion-item>
 				<ion-label position="floating">Start Date</ion-label>
 				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [min]="minStartDate"
+        (ionChange)="onChangeStartDate($event)"
 					formControlName="startDate">
 				</ion-datetime>
 			</ion-item>
@@ -60,7 +61,7 @@
 			</div>
 			<ion-item>
 				<ion-label position="floating">End Date</ion-label>
-				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="endDate">
+				<ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [min]="form.get('startDate').value" formControlName="endDate">
 				</ion-datetime>
 			</ion-item>
 			<div [hidden]="!form.get('endDate').touched && !form.get('endDate').dirty" class="form-error">
