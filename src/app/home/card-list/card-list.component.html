@@ -1,5 +1,5 @@
 <ion-card>
-	<img [src]="list.imageUrl" class="img-meme"  (click)="presentActionSheet()" />
+	<img [src]="list.imageUrl" class="img-meme cursor-pointer" (click)="presentActionSheet()" />
 	<ion-card-content>
 		<ion-card-title>
 			{{list.title}}
@@ -12,17 +12,7 @@
 		</p>
 		<p>
 			Activities {{list.listActivity.length}}
-			<a style="cursor: pointer" [hidden]="list.listActivity.length === 0">view all</a>
-	</p>
-	<!-- <div style="text-align: right;">
-			<ion-button (click)="editList(i)">
-				<ion-icon name="pencil"></ion-icon>
-			</ion-button>
-		</div> -->
+			<a class="cursor-pointer" [hidden]="list.listActivity.length === 0">view all</a>
+		</p>
 	</ion-card-content>
-	<!-- <div class="delete-button-absolute">
-		<ion-button (click)="deleteList(i)">
-			<ion-icon name="trash"></ion-icon>
-		</ion-button>
-	</div> -->
 </ion-card>

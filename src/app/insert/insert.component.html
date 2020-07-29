@@ -1,11 +1,9 @@
-<ion-header [hidden]="action === 'Save'">
+<ion-header translucent [hidden]="!isModalOpened">
 	<ion-toolbar>
-		<ion-buttons slot="end" (click)="dismiss()">
-			<ion-button>
-				<ion-icon name="clear"></ion-icon>
-			</ion-button>
+		<ion-title>Modal Content</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="dismissModal()">Close</ion-button>
 		</ion-buttons>
-		<ion-title>{{ action }} Lista</ion-title>
 	</ion-toolbar>
 </ion-header>
 

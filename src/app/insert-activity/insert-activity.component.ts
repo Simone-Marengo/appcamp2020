@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PageDataService } from "../../services/tabs-data.service";
+import { ModalController } from "@ionic/angular";
 
 @Component({
   selector: "app-insert-activity",
@@ -8,10 +9,15 @@ import { PageDataService } from "../../services/tabs-data.service";
 })
 export class InsertActivityComponent implements OnInit {
   listArray: Array<any> = [];
-  constructor(private pageDataService: PageDataService) {}
+  isModalOpened: boolean = false;
+  constructor(
+    private modalController: ModalController,
+    private pageDataService: PageDataService
+  ) {}
 
   ngOnInit() {
     this.listArray = this.pageDataService.listArray;
+    this.checkIsModalOpened();
   }
 
   saveActivity(activityInput, i) {
@@ -24,5 +30,15 @@ export class InsertActivityComponent implements OnInit {
   }
   disableInput(value: string): boolean {
     return value === "" ? true : false;
+  }
+
+  async checkIsModalOpened() {
+    await this.modalController
+      .getTop()
+      .then(item => (this.isModalOpened = item ? true : false));
+  }
+
+  dismissModal() {
+    this.modalController.dismiss();
   }
 }
