@@ -6,6 +6,7 @@ import { HeaderModalDismisserComponent } from "./header-modal-dismisser.componen
 
 @NgModule({
   imports: [IonicModule, CommonModule, ], 
-  declarations: [HeaderModalDismisserComponent]
+  declarations: [HeaderModalDismisserComponent],
+  exports: [HeaderModalDismisserComponent]
 })
 export class HeaderModalDismisserModule {}

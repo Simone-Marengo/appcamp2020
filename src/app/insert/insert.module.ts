@@ -6,6 +6,7 @@ import { IonicModule } from "@ionic/angular";
 
 import { InsertPageComponent } from "./insert.component";
 import { InsertRoutingModule } from "./insert-routing.module";
+import { HeaderModalDismisserModule } from "../components/header-modal-dismisser/header-modal-dismisser.module";
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { InsertRoutingModule } from "./insert-routing.module";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    InsertRoutingModule
+    InsertRoutingModule,
+    HeaderModalDismisserModule
   ],
   declarations: [InsertPageComponent],
   exports: [InsertPageComponent],

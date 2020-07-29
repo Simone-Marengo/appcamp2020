@@ -1,11 +1,4 @@
-<ion-header translucent [hidden]="!isModalOpened">
-	<ion-toolbar>
-		<ion-title>Modal Content</ion-title>
-		<ion-buttons slot="end">
-			<ion-button (click)="dismissModal()">Close</ion-button>
-		</ion-buttons>
-	</ion-toolbar>
-</ion-header>
+<app-header-modal-dismisser [title]="getHeaderTitle()"></app-header-modal-dismisser>
 
 <ion-content padding>
 

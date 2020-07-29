@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 
 @Component({
-  selector: "app-insert-activity",
-  templateUrl: "insert-activity.component.html",
-  styleUrls: ["insert-activity.component.css"]
+  selector: "app-header-modal-dismisser",
+  templateUrl: "header-modal-dismisser.component.html",
+  styleUrls: ["header-modal-dismisser.component.css"]
 })
 export class HeaderModalDismisserComponent implements OnInit {
   isModalOpened: boolean = false;

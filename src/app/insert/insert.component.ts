@@ -140,6 +140,12 @@ export class InsertPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  getHeaderTitle = () => `${this.action} List`; // this.action + "List"
+
+  // getHeaderTitle() {
+  //   return `${this.action} List`;
+  // }
+
   ngOnDestroy() {
     this.element = null;
   }

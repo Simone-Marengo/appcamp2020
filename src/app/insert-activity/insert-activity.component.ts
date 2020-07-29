@@ -41,4 +41,6 @@ export class InsertActivityComponent implements OnInit {
   dismissModal() {
     this.modalController.dismiss();
   }
+
+  getHeaderTitle = () => "Activities";
 }
